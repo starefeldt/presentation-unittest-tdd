@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementApp.Library", "StudentManagementApp.Library\StudentManagementApp.Library.csproj", "{ED8C567C-657C-42C3-9CE7-29B8ED8E9573}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentManagementApp.Library.Tests", "StudentManagementApp.Library.Tests\StudentManagementApp.Library.Tests.csproj", "{BBEC3053-5ECB-4DF7-BDB5-058EB3852AB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED8C567C-657C-42C3-9CE7-29B8ED8E9573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8C567C-657C-42C3-9CE7-29B8ED8E9573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8C567C-657C-42C3-9CE7-29B8ED8E9573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8C567C-657C-42C3-9CE7-29B8ED8E9573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBEC3053-5ECB-4DF7-BDB5-058EB3852AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEC3053-5ECB-4DF7-BDB5-058EB3852AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEC3053-5ECB-4DF7-BDB5-058EB3852AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEC3053-5ECB-4DF7-BDB5-058EB3852AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84BCADF0-49B0-46A9-9DB1-24EE2370121C}
+	EndGlobalSection
+EndGlobal
