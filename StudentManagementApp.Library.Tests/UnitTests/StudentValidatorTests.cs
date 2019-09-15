@@ -11,11 +11,9 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         public void IsApprovedForCSN_WhenAgeIsOver56_ReturnsFalse()
         {
             //Arrange
-            var stubRepo = new FakeRepository();
-
             var student = new Student();
             student.Age = 57;
-            var validator = new StudentValidator(stubRepo, student);
+            var validator = new StudentValidator(student, null);
 
             //Act
             var result = validator.IsApprovedForCSN();
@@ -28,10 +26,10 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         public void IsApprovedForCSN_WhenStudentIsNotRegistered_ReturnsFalse()
         {
             //Arrange
-            var stubRepo = new FakeRepository();
             var student = new Student();
-            student.Age = 21;
-            var validator = new StudentValidator(stubRepo, student);
+            student.Age = 30;
+            var stubRepo = new FakeRepository();
+            var validator = new StudentValidator(student, stubRepo);
 
             //Act
             var result = validator.IsApprovedForCSN();
@@ -44,12 +42,11 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         public void IsApprovedForCSN_WhenStudentIsRegistered_ReturnsTrue()
         {
             //Arrange
+            var student = new Student();
+            student.Age = 30;
             var stubRepo = new FakeRepository();
             stubRepo.HasRegistered = true;
-
-            var student = new Student();
-            student.Age = 21;
-            var validator = new StudentValidator(stubRepo, student);
+            var validator = new StudentValidator(student, stubRepo);
 
             //Act
             var result = validator.IsApprovedForCSN();

@@ -9,7 +9,7 @@ namespace StudentManagementApp.Library
         private readonly Student _student;
         private readonly IRepository _repository;
 
-        public StudentValidator(IRepository repository, Student student)
+        public StudentValidator(Student student, IRepository repository)
         {
             _student = student;
             _repository = repository;

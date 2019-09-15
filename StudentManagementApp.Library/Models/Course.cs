@@ -6,7 +6,7 @@ namespace StudentManagementApp.Library.Models
 {
     public class Course
     {
-        private List<Enrollment> _enrollments;
+        private readonly List<Enrollment> _enrollments;
 
         public Course()
         {

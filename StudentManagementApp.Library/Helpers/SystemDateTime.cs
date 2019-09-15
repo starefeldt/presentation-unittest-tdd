@@ -18,9 +18,10 @@ namespace StudentManagementApp.Library.Helpers
 
         public static DateTime Now()
         {
-            if (_custom != DateTime.MinValue)
+            if(_custom != DateTime.MinValue)
+            {
                 return _custom;
-
+            }
             return DateTime.Now;
         }
     }
