@@ -16,13 +16,13 @@ namespace StudentManagementApp.Library.Helpers
             _custom = DateTime.MinValue;
         }
 
-        public static DateTime Now()
+        public static DateTime UtcNow()
         {
             if(_custom != DateTime.MinValue)
             {
                 return _custom;
             }
-            return DateTime.Now;
+            return DateTime.UtcNow;
         }
     }
 }

@@ -4,7 +4,7 @@ using StudentManagementApp.Library.Models;
 
 namespace StudentManagementApp.Library
 {
-    public class StudentValidator
+    public class StudentValidator : IStudentValidator
     {
         private readonly Student _student;
         private readonly IRepository _repository;

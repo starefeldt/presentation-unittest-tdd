@@ -12,7 +12,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         {
             //Arrange, Act & Assert
             var ex = Assert.ThrowsException<ArgumentNullException>(() =>
-                new Enrollment(null, new Course(), DateTime.Now));
+                new Enrollment(new Course(), null, DateTime.Now));
 
             StringAssert.Contains(ex.Message, $"{nameof(Student)}");
         }
@@ -22,7 +22,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         {
             //Arrange, Act & Assert
             var ex = Assert.ThrowsException<ArgumentNullException>(() =>
-                new Enrollment(new Student(), null, DateTime.Now));
+                new Enrollment(null, new Student(), DateTime.Now));
 
             StringAssert.Contains(ex.Message, $"{nameof(Course)}");
         }
