@@ -1,5 +1,4 @@
-﻿using StudentManagementApp.Library.DataAccess;
-using StudentManagementApp.Library.Interfaces;
+﻿using StudentManagementApp.Library.Interfaces;
 using StudentManagementApp.Library.Models;
 
 namespace StudentManagementApp.Library
@@ -15,9 +14,9 @@ namespace StudentManagementApp.Library
             _repository = repository;
         }
 
-        public bool IsApprovedForCSN()
+        public bool IsApprovedForEnrollment()
         {
-            if (_student.Age > 56)
+            if (_student.Age < 18)
             {
                 return false;
             }

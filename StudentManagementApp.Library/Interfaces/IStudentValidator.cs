@@ -2,6 +2,6 @@
 {
     public interface IStudentValidator
     {
-        bool IsApprovedForCSN();
+        bool IsApprovedForEnrollment();
     }
 }

@@ -6,7 +6,7 @@ namespace StudentManagementApp.Library.Tests.Fakes
     {
         public bool IsApproved;
 
-        public bool IsApprovedForCSN()
+        public bool IsApprovedForEnrollment()
         {
             return IsApproved;
         }
