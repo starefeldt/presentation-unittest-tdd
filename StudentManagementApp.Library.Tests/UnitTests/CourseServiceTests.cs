@@ -69,13 +69,13 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         }
 
         [TestMethod]
-        public void Enroll_WhenNotApprovedForCSN_DoesNotAddEnrollment()
+        public void Enroll_WhenNotApprovedForEnrollment_DoesNotAddEnrollment()
         {
             //Arrange
             var course = new Course();
-            var student = new Student();
             var validator = new FakeValidator() { IsApproved = false };
             var service = GetCourseService(course, validator);
+            var student = new Student();
 
             //Act
             service.Enroll(student);
