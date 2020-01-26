@@ -10,8 +10,8 @@ namespace StudentManagementApp.Library.Models
 
         public Enrollment(Student student, Course course, DateTime created)
         {
-            Student = student ?? throw new ArgumentNullException($"{nameof(Models.Student)} is null");
-            Course = course ?? throw new ArgumentNullException($"{nameof(Models.Course)} is null");
+            Student = student ?? throw new ArgumentNullException(nameof(Models.Student));
+            Course = course ?? throw new ArgumentNullException(nameof(Models.Course));
             Created = created;
         }
     }
