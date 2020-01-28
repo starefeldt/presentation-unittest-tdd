@@ -4,11 +4,11 @@ namespace StudentManagementApp.Library.Tests.Fakes
 {
     public class FakeValidator : IStudentValidator
     {
-        public bool IsApproved;
+        public bool IsApprovedShouldReturn;
 
-        public bool IsApprovedForEnrollment()
+        public bool IsApproved()
         {
-            return IsApproved;
+            return IsApprovedShouldReturn;
         }
     }
 }

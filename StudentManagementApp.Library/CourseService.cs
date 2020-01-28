@@ -20,7 +20,7 @@ namespace StudentManagementApp.Library
 
         public void Enroll(Student student)
         {
-            if (_validator.IsApprovedForEnrollment())
+            if (_validator.IsApproved())
             {
                 var enrollment = new Enrollment(_course, student, SystemDateTime.UtcNow());
                 _enrollments.Add(enrollment);

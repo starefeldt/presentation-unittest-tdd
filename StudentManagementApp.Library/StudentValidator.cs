@@ -14,7 +14,7 @@ namespace StudentManagementApp.Library
             _repository = repository;
         }
 
-        public bool IsApprovedForEnrollment()
+        public bool IsApproved()
         {
             if (_student.Age < 18)
             {

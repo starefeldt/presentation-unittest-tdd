@@ -73,7 +73,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         {
             //Arrange
             var course = new Course();
-            var validator = new FakeValidator() { IsApproved = false };
+            var validator = new FakeValidator() { IsApprovedShouldReturn = false };
             var service = GetCourseService(course, validator);
             var student = new Student();
 
@@ -90,7 +90,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         {
             if(validator == null)
             {
-                validator = new FakeValidator { IsApproved = true };
+                validator = new FakeValidator { IsApprovedShouldReturn = true };
             }
 
             return new CourseService(course, validator);

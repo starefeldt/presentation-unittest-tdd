@@ -2,6 +2,6 @@
 {
     public interface IStudentValidator
     {
-        bool IsApprovedForEnrollment();
+        bool IsApproved();
     }
 }

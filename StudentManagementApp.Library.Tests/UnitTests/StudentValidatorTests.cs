@@ -8,7 +8,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
     public class StudentValidatorTests
     {
         [TestMethod]
-        public void IsApprovedForEnrollment_WhenAgeIsUnder18_ReturnsFalse()
+        public void IsApproved_WhenAgeIsUnder18_ReturnsFalse()
         {
             //Arrange
             var student = new Student();
@@ -16,14 +16,14 @@ namespace StudentManagementApp.Library.Tests.UnitTests
             var validator = new StudentValidator(student, null);
 
             //Act
-            var result = validator.IsApprovedForEnrollment();
+            var result = validator.IsApproved();
 
             //Assert
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void IsApprovedForEnrollment_WhenStudentIsNotRegistered_ReturnsFalse()
+        public void IsApproved_WhenStudentIsNotRegistered_ReturnsFalse()
         {
             //Arrange
             var student = new Student();
@@ -32,14 +32,14 @@ namespace StudentManagementApp.Library.Tests.UnitTests
             var validator = new StudentValidator(student, stubRepo);
 
             //Act
-            var result = validator.IsApprovedForEnrollment();
+            var result = validator.IsApproved();
 
             //Assert
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void IsApprovedForEnrollment_WhenStudentIsRegistered_ReturnsTrue()
+        public void IsApproved_WhenStudentIsRegistered_ReturnsTrue()
         {
             //Arrange
             var student = new Student();
@@ -49,7 +49,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
             var validator = new StudentValidator(student, stubRepo);
 
             //Act
-            var result = validator.IsApprovedForEnrollment();
+            var result = validator.IsApproved();
 
             //Assert
             Assert.IsTrue(result);
