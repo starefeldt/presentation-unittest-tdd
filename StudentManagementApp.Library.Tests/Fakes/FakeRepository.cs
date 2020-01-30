@@ -3,9 +3,9 @@ using StudentManagementApp.Library.Models;
 
 namespace StudentManagementApp.Library.Tests.Fakes
 {
-    public class FakeRepository : IRepository
+    public class FakeRepository : IValidatorRepository
     {
-        public bool HasRegistered;
+        public bool HasRegistered = false;
 
         public bool IsStudentRegistered(Student student)
         {

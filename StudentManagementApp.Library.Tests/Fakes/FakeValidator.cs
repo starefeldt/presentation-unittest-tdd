@@ -1,14 +1,14 @@
-﻿using StudentManagementApp.Library.Interfaces;
+﻿using StudentManagementApp.Library.Models;
 
 namespace StudentManagementApp.Library.Tests.Fakes
 {
-    public class FakeValidator : IStudentValidator
+    public class FakeValidator : IValidator
     {
-        public bool IsApprovedShouldReturn;
+        public bool IsApproved;
 
-        public bool IsApproved()
+        public bool IsStudentApproved(Student student)
         {
-            return IsApprovedShouldReturn;
+            return IsApproved;
         }
     }
 }

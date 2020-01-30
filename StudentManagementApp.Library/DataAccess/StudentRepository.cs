@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace StudentManagementApp.Library.DataAccess
 {
-    public class StudentRepository : IRepository
+    public class StudentRepository : IValidatorRepository
     {
         private readonly string _connectionString;
 

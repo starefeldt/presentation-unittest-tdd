@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StudentManagementApp.Library.Helpers;
-using StudentManagementApp.Library.Interfaces;
 using StudentManagementApp.Library.Models;
 using StudentManagementApp.Library.Tests.Fakes;
 using System;
@@ -12,7 +11,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
     public class CourseServiceTests
     {
         [TestCleanup]
-        public void TestCleanup()
+        public void Cleanup()
         {
             SystemDateTime.Reset();
         }
@@ -29,7 +28,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
             service.Enroll(student);
 
             //Assert
-            Assert.AreEqual(1, service.GetEnrollments().Count());
+            Assert.AreEqual(1, service.GetEnrollments().Count);
         }
 
         [TestMethod]
@@ -45,8 +44,8 @@ namespace StudentManagementApp.Library.Tests.UnitTests
 
             //Assert
             var enrollment = service.GetEnrollments().Single();
-            Assert.AreEqual(course, enrollment.Course);
             Assert.AreEqual(student, enrollment.Student);
+            Assert.AreEqual(course, enrollment.Course);
         }
 
         [TestMethod]
@@ -57,42 +56,39 @@ namespace StudentManagementApp.Library.Tests.UnitTests
             var service = GetCourseService(course);
             var student = new Student();
 
-            var expected = DateTime.UtcNow;
-            SystemDateTime.Set(expected);
+            var expectedCreated = DateTime.UtcNow;
+            SystemDateTime.Set(expectedCreated);
 
             //Act
             service.Enroll(student);
 
             //Assert
             var enrollment = service.GetEnrollments().Single();
-            Assert.AreEqual(expected, enrollment.Created);
+            Assert.AreEqual(expectedCreated, enrollment.Created);
         }
 
         [TestMethod]
-        public void Enroll_WhenNotApprovedForEnrollment_DoesNotAddEnrollment()
+        public void Validate_WhenStudentIsApproved_ReturnsTrue()
         {
             //Arrange
             var course = new Course();
-            var validator = new FakeValidator() { IsApprovedShouldReturn = false };
-            var service = GetCourseService(course, validator);
+            var stubValidator = new FakeValidator { IsApproved = true };
+            var service = GetCourseService(course, stubValidator);
             var student = new Student();
 
             //Act
-            service.Enroll(student);
+            bool result = service.Validate(student);
 
             //Assert
-            Assert.AreEqual(0, service.GetEnrollments().Count());
+            Assert.IsTrue(result);
         }
-        
-        private static CourseService GetCourseService(
-            Course course, 
-            FakeValidator validator = null)
-        {
-            if(validator == null)
-            {
-                validator = new FakeValidator { IsApprovedShouldReturn = true };
-            }
 
+        private CourseService GetCourseService(Course course, IValidator validator = null)
+        {
+            if (validator == null)
+            {
+                validator = new FakeValidator();
+            }
             return new CourseService(course, validator);
         }
     }

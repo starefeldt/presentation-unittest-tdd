@@ -1,5 +1,4 @@
 ﻿using StudentManagementApp.Library.Helpers;
-using StudentManagementApp.Library.Interfaces;
 using StudentManagementApp.Library.Models;
 using System.Collections.Generic;
 
@@ -8,10 +7,10 @@ namespace StudentManagementApp.Library
     public class CourseService
     {
         private readonly Course _course;
-        private readonly IStudentValidator _validator;
+        private readonly IValidator _validator;
         private readonly List<Enrollment> _enrollments;
 
-        public CourseService(Course course, IStudentValidator validator)
+        public CourseService(Course course, IValidator validator)
         {
             _course = course;
             _validator = validator;
@@ -20,16 +19,18 @@ namespace StudentManagementApp.Library
 
         public void Enroll(Student student)
         {
-            if (_validator.IsApproved())
-            {
-                var enrollment = new Enrollment(_course, student, SystemDateTime.UtcNow());
-                _enrollments.Add(enrollment);
-            }
+            var enrollment = new Enrollment(student, _course, SystemDateTime.UtcNow());
+            _enrollments.Add(enrollment);
         }
 
         public List<Enrollment> GetEnrollments()
         {
             return _enrollments;
+        }
+
+        public bool Validate(Student student)
+        {
+            return _validator.IsStudentApproved(student);
         }
     }
 }

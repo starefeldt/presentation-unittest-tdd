@@ -4,15 +4,15 @@ namespace StudentManagementApp.Library.Models
 {
     public class Enrollment
     {
-        public Enrollment(Course course, Student student, DateTime created)
+        public Student Student { get; }
+        public Course Course { get; }
+        public DateTime Created { get; }
+
+        public Enrollment(Student student, Course course, DateTime created)
         {
-            Course = course ?? throw new ArgumentNullException(nameof(Course));
-            Student = student ?? throw new ArgumentNullException(nameof(Student));
+            Student = student;
+            Course = course;
             Created = created;
         }
-
-        public Course Course { get; }
-        public Student Student { get; }
-        public DateTime Created { get; }
     }
 }
