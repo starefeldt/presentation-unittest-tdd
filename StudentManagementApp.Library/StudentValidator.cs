@@ -1,18 +1,17 @@
-﻿using StudentManagementApp.Library.Interfaces;
-using StudentManagementApp.Library.Models;
+﻿using StudentManagementApp.Library.Models;
 
 namespace StudentManagementApp.Library
 {
-    public class Validator : IValidator
+    public class StudentValidator
     {
-        private readonly IValidatorRepository _repository;
+        private readonly IStudentRepository _repository;
 
-        public Validator(IValidatorRepository repository)
+        public StudentValidator(IStudentRepository repository)
         {
             _repository = repository;
         }
 
-        public bool IsStudentApproved(Student student)
+        public bool Validate(Student student)
         {
             if (student.Age < 18)
             {
@@ -26,5 +25,6 @@ namespace StudentManagementApp.Library
 
             return true;
         }
+
     }
 }

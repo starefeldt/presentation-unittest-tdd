@@ -18,7 +18,7 @@ namespace StudentManagementApp.Library.Helpers
 
         public static DateTime UtcNow()
         {
-            if(_custom != DateTime.MinValue)
+            if (_custom != DateTime.MinValue)
             {
                 return _custom;
             }

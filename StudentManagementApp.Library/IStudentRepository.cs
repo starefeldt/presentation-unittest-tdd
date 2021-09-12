@@ -1,8 +1,8 @@
 ﻿using StudentManagementApp.Library.Models;
 
-namespace StudentManagementApp.Library.Interfaces
+namespace StudentManagementApp.Library
 {
-    public interface IValidatorRepository
+    public interface IStudentRepository
     {
         bool IsStudentRegistered(Student student);
     }

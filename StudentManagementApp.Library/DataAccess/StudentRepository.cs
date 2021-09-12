@@ -1,10 +1,9 @@
-﻿using StudentManagementApp.Library.Interfaces;
-using StudentManagementApp.Library.Models;
+﻿using StudentManagementApp.Library.Models;
 using System.Data.SqlClient;
 
 namespace StudentManagementApp.Library.DataAccess
 {
-    public class StudentRepository : IValidatorRepository
+    public class StudentRepository : IStudentRepository
     {
         private readonly string _connectionString;
 

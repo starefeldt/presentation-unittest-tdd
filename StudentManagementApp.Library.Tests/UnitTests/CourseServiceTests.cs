@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StudentManagementApp.Library.Helpers;
 using StudentManagementApp.Library.Models;
-using StudentManagementApp.Library.Tests.Fakes;
 using System;
 using System.Linq;
 
@@ -11,7 +10,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
     public class CourseServiceTests
     {
         [TestCleanup]
-        public void Cleanup()
+        public void TestCleanUp()
         {
             SystemDateTime.Reset();
         }
@@ -21,7 +20,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         {
             //Arrange
             var course = new Course();
-            var service = GetCourseService(course);
+            var service = new CourseService(course);
             var student = new Student();
 
             //Act
@@ -36,7 +35,7 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         {
             //Arrange
             var course = new Course();
-            var service = GetCourseService(course);
+            var service = new CourseService(course);
             var student = new Student();
 
             //Act
@@ -53,43 +52,17 @@ namespace StudentManagementApp.Library.Tests.UnitTests
         {
             //Arrange
             var course = new Course();
-            var service = GetCourseService(course);
+            var service = new CourseService(course);
             var student = new Student();
-
-            var expectedCreated = DateTime.UtcNow;
-            SystemDateTime.Set(expectedCreated);
+            var expectedDate = DateTime.UtcNow;
+            SystemDateTime.Set(expectedDate);
 
             //Act
             service.Enroll(student);
 
             //Assert
             var enrollment = service.GetEnrollments().Single();
-            Assert.AreEqual(expectedCreated, enrollment.Created);
-        }
-
-        [TestMethod]
-        public void Validate_WhenStudentIsApproved_ReturnsTrue()
-        {
-            //Arrange
-            var course = new Course();
-            var stubValidator = new FakeValidator { IsApproved = true };
-            var service = GetCourseService(course, stubValidator);
-            var student = new Student();
-
-            //Act
-            bool result = service.Validate(student);
-
-            //Assert
-            Assert.IsTrue(result);
-        }
-
-        private CourseService GetCourseService(Course course, IValidator validator = null)
-        {
-            if (validator == null)
-            {
-                validator = new FakeValidator();
-            }
-            return new CourseService(course, validator);
+            Assert.AreEqual(expectedDate, enrollment.Created);
         }
     }
 }
